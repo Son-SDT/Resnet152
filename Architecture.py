@@ -64,8 +64,6 @@ class identity_block2(nn.Module):
         # Third layer
         nn.Conv2d(F2,F3, kernel_size = 1 , stride =1, padding = cal_padding(tensor_size,1,1)),
         nn.BatchNorm2d(F3),
-        
-        
         )
         self.relu = nn.ReLU()
 
@@ -90,9 +88,6 @@ class Resnet152 (nn.Module):
             nn.BatchNorm2d(64),
             nn.ReLU(),
         )
-
-
-
 
         self.stage_1_b1 = identity_block1(64,stage1,56)
         self.stage_1_b2 = identity_block2(256,stage1,56)
@@ -145,8 +140,6 @@ class Resnet152 (nn.Module):
         self.stage_3_b35 = identity_block2(1024,stage3,14)
         self.stage_3_b36 = identity_block2(1024,stage3,14)
 
-
-        
         self.stage_4_b1 = identity_block1(1024,stage4,7)
         self.stage_4_b2 = identity_block2(2048,stage4,7)
         self.stage_4_b3 = identity_block2(2048,stage4,7)

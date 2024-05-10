@@ -22,8 +22,8 @@ train_data = DataLoader(train_set, batch_size = 64, shuffle=True)
 test_set = ds.AnimalDataset(root=data_root,train=False, transform = transform)
 test_data = DataLoader(test_set, batch_size=64, shuffle=False)
 
-net = arch.Resnet50(3, num_class)
-optimizer = optimizer = torch.optim.Adam(net.parameters(), lr=0.01)
+net = arch.Resnet152(3, num_class)
+optimizer = torch.optim.Adam(net.parameters(), lr=0.01)
 criterion = nn.CrossEntropyLoss()
 
 from datetime import datetime
